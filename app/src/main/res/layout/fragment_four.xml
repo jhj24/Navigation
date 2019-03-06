@@ -4,4 +4,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <Button
+            android:id="@+id/button"
+            android:text="第四个Fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 </LinearLayout>
