@@ -1,12 +1,23 @@
 package com.jhj.navigation
 
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
+import android.support.design.internal.BottomNavigationItemView
+import android.support.design.internal.BottomNavigationMenuView
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
+import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.backgroundDrawable
+import org.jetbrains.anko.dip
+import org.jetbrains.anko.textColor
+import org.jetbrains.anko.wrapContent
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,9 +46,28 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             false
-
         }
 
+
+//小红点
+        val menuView = navigation_view.getChildAt(0)
+        val messageNum = 9
+        if (messageNum > 0 && menuView != null && menuView is BottomNavigationMenuView) {
+            val messageItemView = menuView.getChildAt(2) as BottomNavigationItemView
+            val textView = TextView(this).apply {
+                text = messageNum.toString()
+                gravity = Gravity.CENTER
+                textColor = Color.WHITE
+                textSize = 10f
+                backgroundDrawable = ContextCompat.getDrawable(this@MainActivity, R.drawable.shape_message_dot)
+                val layoutParams = FrameLayout.LayoutParams(wrapContent, wrapContent)
+                layoutParams.topMargin = dip(6)
+                layoutParams.leftMargin = dip(15)
+                layoutParams.gravity = Gravity.CENTER_HORIZONTAL
+                setLayoutParams(layoutParams)
+            }
+            messageItemView.addView(textView)
+        }
         val navHostFragment = fragment as NavHostFragment
         NavigationUI.setupWithNavController(navigation_view, navHostFragment.navController)
     }
