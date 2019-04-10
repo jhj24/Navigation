@@ -22,8 +22,10 @@
             android:id="@+id/navigation_view"
             style="@style/Widget.MaterialComponents.NavigationView"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:layout_gravity="start"
+            android:background="#ffffff"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_main"/>
 
 </LinearLayout>

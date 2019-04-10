@@ -9,11 +9,9 @@
     </fragment>
     <fragment android:id="@+id/fragmentTwo" android:name="com.jhj.navigation.fragment.FragmentTwo"
               android:label="FragmentTwo">
-        <action android:id="@+id/action_fragmentTwo_to_fragmentThree" app:destination="@id/fragmentThree"/>
     </fragment>
     <fragment android:id="@+id/fragmentThree" android:name="com.jhj.navigation.fragment.FragmentThree"
               android:label="FragmentThree">
-        <action android:id="@+id/action_fragmentThree_to_fragmentFour" app:destination="@id/fragmentFour"/>
     </fragment>
     <fragment android:id="@+id/fragmentFour" android:name="com.jhj.navigation.fragment.FragmentFour"
               android:label="FragmentFour"/>
